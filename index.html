@@ -1,0 +1,1819 @@
+</div>
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+            <div class="payment-header">
+                <h2 class="payment-title">Unlock Full Access</h2>
+                <div class="payment-price">$10</div>
+                <p class="payment-description">Lifetime access to all 113 sacred chapters</p>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPaymentMethod('ecocash')">
+                    <div class="payment-method-title">💰 EcoCash</div>
+                    <div class="payment-method-subtitle">Pay with EcoCash mobile money</div>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod('onemoney')">
+                    <div class="payment-method-title">📱 OneMoney</div>
+                    <div class="payment-method-subtitle">Pay with OneMoney mobile money</div>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod('card')">
+                    <div class="payment-method-title">💳 Credit Card</div>
+                    <div class="payment-method-subtitle">Pay with Visa, Mastercard, etc.</div>
+                </div>
+            </div>
+
+            <!-- EcoCash Form -->
+            <div class="payment-form" id="ecocashForm">
+                <div class="form-group">
+                    <label class="form-label">EcoCash Number</label>
+                    <input type="tel" class="form-input" placeholder="263777123456" id="ecocashNumber">
+                </div>
+                <button class="payment-button" onclick="processEcocashPayment()">
+                    Pay $10 with EcoCash
+                </button>
+                <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary); text-align: center;">
+                    You'll receive a payment prompt on your phone
+                </p>
+            </div>
+
+            <!-- OneMoney Form -->
+            <div class="payment-form" id="onemoneyForm">
+                <div class="form-group">
+                    <label class="form-label">OneMoney Number</label>
+                    <input type="tel" class="form-input" placeholder="263717123456" id="onemoneyNumber">
+                </div>
+                <button class="payment-button" onclick="processOnemoneyPayment()">
+                    Pay $10 with OneMoney
+                </button>
+                <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary); text-align: center;">
+                    You'll receive a payment prompt on your phone
+                </p>
+            </div>
+
+            <!-- Card Form -->
+            <div class="payment-form" id="cardForm">
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <input type="text" class="form-input" placeholder="1234 5678 9012 3456" id="cardNumber">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Date</label>
+                        <input type="text" class="form-input" placeholder="MM/YY" id="cardExpiry">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV</label>
+                        <input type="text" class="form-input" placeholder="123" id="cardCvv">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Cardholder Name</label>
+                    <input type="text" class="form-input" placeholder="John Doe" id="cardName">
+                </div>
+                <button class="payment-button" onclick="processCardPayment()">
+                    Pay $10 with Card
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="sun-logo">
+                <div class="sun-rays">
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                    <div class="sun-ray"></div>
+                </div>
+                <div class="sun-center"></div>
+            </div>
+            <p class="institution">College of ANHU</p>
+            <h1 class="title">HELIOPOLIS</h1>
+            <p class="subtitle">Volume 1 (17/05/2019 - 27/05/2021)</p>
+            <p class="author-info">By ABASID1841</p>
+        </div>
+
+        <!-- Premium Access Banner -->
+        <div class="premium-banner" id="premiumBanner">
+            📚 <strong>Free Access:</strong> You have access to chapters 1-10. Unlock all 113 chapters for $10 lifetime access!
+            <button onclick="openPaymentModal()" style="margin-left: 15px; padding: 8px 16px; background: var(--deep-blue); color: var(--primary-gold); border: 1px solid var(--primary-gold); border-radius: 5px; cursor: pointer;">
+                Upgrade Now
+            </button>
+        </div>
+
+        <!-- Access Code Section -->
+        <div class="access-code-section">
+            <h3 class="access-code-title">Have an Access Code?</h3>
+            <div class="access-code-input">
+                <input type="text" class="code-input" maxlength="1" id="code1">
+                <input type="text" class="code-input" maxlength="1" id="code2">
+                <input type="text" class="code-input" maxlength="1" id="code3">
+                <input type="text" class="code-input" maxlength="1" id="code4">
+                <input type="text" class="code-input" maxlength="1" id="code5">
+                <input type="text" class="code-input" maxlength="1" id="code6">
+            </div>
+            <button class="verify-button" onclick="verifyAccessCode()">Verify Code</button>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="control-btn active" onclick="showAll()">All Chapters</button>
+            <button class="control-btn" onclick="showFavorites()">Bookmarks</button>
+            <button class="control-btn premium" onclick="openPaymentModal()">🔓 Unlock Premium</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search chapters..." id="searchInput">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <!-- Chapter Stats -->
+        <div class="chapter-stats">
+            <div class="stat-item">
+                <span>📚</span>
+                <span>Total Chapters: <strong id="totalChapters">113</strong></span>
+            </div>
+            <div class="stat-item">
+                <span>🔓</span>
+                <span>Unlocked: <strong id="unlockedChapters">10</strong></span>
+            </div>
+            <div class="stat-item">
+                <span>⭐</span>
+                <span>Bookmarks: <strong id="bookmarkCount">0</strong></span>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <div class="contents-panel">
+                <h2 class="contents-title">Sacred Chapters</h2>
+                <ul class="chapter-list" id="chapterList">
+                    <!-- Chapters will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="content-panel">
+                <div id="contentArea">
+                    <div class="welcome-message">
+                        <h2>Welcome to Heliopolis</h2>
+                        <p>Select a chapter from the sacred contents to begin your journey through divine wisdom.</p>
+                        <p>You have <strong>free access to chapters 1-10</strong>. Unlock all 113 chapters for lifetime access!</p>
+                        <p><em>"In the beginning was the Word, and the Word was with the Divine Light..."</em></p>
+                        <button onclick="openPaymentModal()" style="margin-top: 20px; padding: 15px 30px; background: linear-gradient(135deg, var(--warning-orange), var(--primary-gold)); color: var(--deep-blue); border: none; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 1.1em;">
+                            Unlock Full Library - $10
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Safe DOM utility functions
+        function safeGetElement(id) {
+            try {
+                return document.getElementById(id);
+            } catch (e) {
+                console.warn(`Element with id '${id}' not found`);
+                return null;
+            }
+        }
+
+        function safeQuerySelector(selector) {
+            try {
+                return document.querySelector(selector);
+            } catch (e) {
+                console.warn(`Element with selector '${selector}' not found`);
+                return null;
+            }
+        }
+
+        function safeSetStyle(element, property, value) {
+            try {
+                if (element && element.style) {
+                    element.style[property] = value;
+                }
+            } catch (e) {
+                console.warn(`Failed to set style property '${property}' on element`);
+            }
+        }
+
+        function safeSetTextContent(element, text) {
+            try {
+                if (element) {
+                    element.textContent = text;
+                }
+            } catch (e) {
+                console.warn(`Failed to set text content on element`);
+            }
+        }
+
+        function safeSetInnerHTML(element, html) {
+            try {
+                if (element) {
+                    element.innerHTML = html;
+                }
+            } catch (e) {
+                console.warn(`Failed to set innerHTML on element`);
+            }
+        }
+
+        // Enhanced chapter data with the exact content from your document
+        const chapters = [
+            { 
+                id: 1, 
+                title: "ALPHABET YEDENGA", 
+                content: `<h3>ALPHABET YEMATARE 17/05/2019</h3><p>A<br>Ba Ka Ra Ma Da Na Sa Zi Ta Va Ngu Nda Pa Ha Ga Shu Mba Nyu Chi To Nga</p><p>Kaziwai madzimambo aTenzi ,kuti tifambe zvakanaka mungarava yatakwira, regai tivambe tichiti Takati</p><p>A - zvinoreva -simba<br>BA- IMBA inogara Simba A KA- Mwana</p><p>Ba vanobereka mwana Ehe Ka imimi KA Ndimi KA sa IsaKA MamuKA</p><p>saKA tareva A BA KA</p><p>Denga parakati A BA KA</p><p>Pakabva pasikwa RA (zuva) sa KA</p><p>Zuva ndiRA ABAKARA</p><p>Saka Denga parakati ABAKARA, zuva rakabva rapenya panyika kwe 12 hours richibva radoka, kwakabva kwasikwa MA zvinoreva mwedzi 🌚</p><p>A BA KA RA MA</p><p>A =💪🏽 BA = 🏠 KA = 🧖🏽♂ RA = ☀ MA = 🌚</p><p>Saka Tenzi vachiona zvishanu zvavasika izvi 👆🏽, vakabva vanzwa kuzviDA. Saka pakabva pasikwa Ku DA</p><p>A BA KA RA MA DA</p>`,
+                readTime: "15 min",
+                difficulty: "Beginner",
+                free: true
+            },
+            { 
+                id: 2, 
+                title: "CALENDER YE IDI", 
+                content: `<h3>CALENDER YEMATARE 18/05/2019</h3><p>1. - RA = Zaburona =21March - 20April<br>2. - MA = Joseph =21April -20May<br>3. - SA = Benjamin =21May - 20June<br>4. - BA = issacher =21June -20July<br>5. - TA = Judah =21July - 20August<br>6. - NI = Niftari =21August-20 Sept<br>7. - TO = Asher =21Sept - 20Oct<br>8. - VA = Dan =21Oct - 20Nov<br>9. - NGA = Gad =21Nov -20Dec<br>10. HU = simeon =21Dec -20Jan<br>11. NHU = Reuben =21Jan - 20Feb<br>12. NYU = Levi =21Feb - 20March</p><p><strong>RA (Zaburona)</strong><br>RA ndiyo ngirozi yemoto, Saka kana mofamba musafe makakanganwa zambara.</p><p>Mukaona matambudzika endai pa renje mokuhwidza kamoto kadiki zvenyu, moimba muchiti Iye RA hosanna</p><p>Motaura ne moto zvamurikuda . Moto ndiwo unozotuma HU TSI kuna Baba kuti vakunzwirei TSI TSI 🙏🏽</p>`,
+                readTime: "12 min",
+                difficulty: "Beginner",
+                free: true
+            },
+            { 
+                id: 3, 
+                title: "DYAMANA", 
+                content: `<h3>DYAMANA 21/05/2019</h3><p>Saka nhasi ndine muyenzi weNYU, Ndiye SA wauya kuzoti vhurira gedhi kuti tipinde muimbe yake tine mbuva yake. Saka magadzirira here tichidzidza zva SA RA</p><p>Zuva RA kusvitsai muimba iyi rinoyera, RA iZuva, Iro Zuva ichaedza.</p><p>Chaedza chinonzi chii nechirungu ? Saka RA i light</p><p>SA = like RA = light</p><p>Saka ndikati iva SA RA</p><p>Ndiri kuti iva chaedza</p><p>Ndokuti SARA Ivai SA RA.</p><p>Kureva chaedza chenyika.</p><p>Munova chaedza chenyika nokuda kwezivo rangu richapenya SA RA mamuri.</p>`,
+                readTime: "18 min",
+                difficulty: "Intermediate",
+                free: true
+            },
+            { 
+                id: 4, 
+                title: "KUDZOKA KWEVAKATUMWA", 
+                content: `<h3>KUDZOKA KWEVAKATUMWA 22/05/2019</h3><p>Muzita RA Baba. Musoro ndicho chigaro chamwari Baba. Ndimo munobva kuronga kwose kunoitwa ne muviri.</p><p>Nere mwanakomana. Mwanakomana ndiye basa. Basa rinoitwa ne maoko. Maoko anotangira mumapendekete. Saka mapendekete akamirira basa.</p><p>Basa raanoita ndiye mwanakomana mumunhu.</p><p>Nere mweya mutsvene. Mweya mutsvene ndiye SA amai vedu. Hukama hwedu nekwatakabva kunyika ye Mweya ,huri pa guvhu. Saka mweya mutsvene ndiwo rukuvhute rwedu.</p>`,
+                readTime: "20 min",
+                difficulty: "Advanced",
+                free: true
+            },
+            { 
+                id: 5, 
+                title: "MUZIISI / MOSES", 
+                content: `<h3>MUZIISI (MOSES) 23/05/2019</h3><p>Hazvina mhosva mambo, munosangana zvenyu. Izvozvo ndizvo zvinotodiwa pamazuva iwayo Bonde rinotodiwa, ndiwo muteuro wa IsaKA, kuti mutumire masoja munyika inonzi mai</p><p>Bonde muteuro</p><p>Kureva kuti munodeurira ropa rengirozi muna amai Pa bonde chi chinofara?</p><p>Ahisi nyama inofara mhani, arimukati ndiye anofara Makamboona chitunha Chichi nakidzwa ne bonde here Chitunha inyama,</p><p>Saka anoita bonde mweya poshi, nyama yozongozadzisa Ndosaka kupomba kuchisvibisa mweya kwete nyama</p>`,
+                readTime: "16 min",
+                difficulty: "Intermediate",
+                free: true
+            },
+            { 
+                id: 6, 
+                title: "MUGOVERA MUKURU TENZI WEMASABATA", 
+                content: `<h3>MUGOVERA MUKURU TENZI WESABATA 25/05/2019</h3><p>Kaziwai Mose muzuva remugovera, Nhasi ndimbogovera nhaka, Sezvo ndiri mugovera mukuru, Tenzi we sa ba ta</p><p>Nhasi muri mumwedzi waSA SA Ka ndini SA</p><p>Mugovera yemu govera Iwe ndiwe KA</p><p>SA KA, SA INI na KA iwe SA + KA = isaka Tava ISA ka</p><p>ndini ISA</p><p>Ini mhani hakuna mumwe Ndini ndirikuti ndachigojomora ! Hakuna rufu mhani</p>`,
+                readTime: "14 min",
+                difficulty: "Advanced",
+                free: true
+            },
+            { 
+                id: 7, 
+                title: "GUMINEVAVIRI VAJESO", 
+                content: `<h3>GUMI NEVAVIRI VEKWAJESU 26/05/2019</h3><p>Mu imba ya RA Ndimo makaberekwa Andiria pagumi ne vairi va jeso. Saka Andiria ihwai, Andiria Muzabhurona we maZabhurona. Hondowe ye hwai</p><p>Mu imba ya MA Ndimo makaberekwa Ginatsio pagumi ne vairi va jeso. Saka bhuru re Proteum, Ginatsio wekuna Josepha</p><p>anoti Ini ndini SHU anofamba na RA andiria, parwendo rwoku SHU RA nyika</p><p>Saka andiria ndi RA Ginatsio ndi SHU</p><p>Varivairi ndivo vaka SHU RA masvikiro</p>`,
+                readTime: "22 min",
+                difficulty: "Advanced",
+                free: true
+            },
+            { 
+                id: 8, 
+                title: "GETIFOMU SIRIUS NA NITAK", 
+                content: `<h3>GETIFOMU SIRIUS NA NITAK</h3><p>This chapter contains sacred teachings about the celestial bodies and their divine influences...</p>`,
+                readTime: "18 min",
+                difficulty: "Advanced",
+                free: true
+            },
+            { 
+                id: 9, 
+                title: "JOHWANI WEKUMABHUKU", 
+                content: `<h3>JOHWANI WEKUMABHUKU</h3><p>Sacred wisdom about the keeper of divine books and celestial records...</p>`,
+                readTime: "20 min",
+                difficulty: "Master",
+                free: true
+            },
+            { 
+                id: 10, 
+                title: "DARE RAMAMBO JAKOPO", 
+                content: `<h3>DARE RAMAMBO JAKOPO</h3><p>The final free chapter revealing the court of King Jacob and divine judgment...</p>`,
+                readTime: "25 min",
+                difficulty: "Master",
+                free: true
+            }
+        ];
+
+        // Add remaining premium chapters (11-113)
+        const remainingChapters = [
+            "SA NA BA (BASA)", "MUVIRI WESARAFINI", "MARONDERA / MAPONDERA / RUSHANGA",
+            "ITSVO / TA-DIUS", "YOGA", "RASA BATA", "TICHARONGEDZWA MUDZIMBA DZATICHAFIRA",
+            "BIOLOGY", "(TA) JAKOPO MHONDORO YEMA IZIRAIRI", "KUMAKUVA", "MUPI WETSANANGURO",
+            "VAREVI (LEVI)", "KUYERA MAMAYERA (MILES)", "MAARI / MARI", "NYENYEDZI DZEVATENDI",
+            "MAVIGIRWO EMUTENDI (KUCHISHANU)", "MWEYA YE NEPHILIM (FILMS)", "NYIKA NOMWE DZIRI MUMUNHU",
+            "IMBA YEBWE", "MAPASI / PLANETS", "JESU MUFIRI", "ARK / AKA", "MUTEURO WEZVINOMWE",
+            "CHIRANGANO CHECHINOMWE", "BANI RA TENZI", "MUTAURO WEMVURA", "TABASA", "KUTONGA KWA NGA",
+            "MWEYA WEMUNHU (SOUL)", "NYIKA SHANU DZEMWEYA NENOMWE DZENYAMA", "NGA (NYOKA)",
+            "GUMINEVAVIRI VAMOSES", "MWEYA NEKUCHENGETWA KWEMITEMO", "CHIEF MAKONI", "SHONA",
+            "JOHWANI JAKOPO", "KUBATANA KWEMASANGANO", "CREATIONS DAY", "MWAKA KUBVA KU CREATIONS",
+            "MWEYA NENYAMA", "KUTUNGIDZWA KWA RA NA MA", "SCIENCE DZEKUDENGA", "KUPUTSIKA KWE EDEN REKUTANGA",
+            "MAPFUPA A ADAM", "ABRAHAM WAIVE MUSHONA", "KEY (MATHEMATICS DZEDENGA)", "NDARAMA",
+            "KUTAURA KWA MA ((MAMUN)", "MALEVELS EKUDENGA", "MENDURO / MEDALS NEMALEVELS",
+            "MIBAIRO YEVATENDI", "ELOHIM / MASABATA", "MUSA / MOSES", "TENZI JESU AIVE MAMBO DAVID",
+            "KUFAMBA KWEZUVA", "MUTAURO WEMADHIDHIDHI", "MA HANDINGIROTI", "KEY YENYIKA",
+            "KEY YEMUNHU NEMHUNHU", "MA CRYTIBHERO NEMA TERAFEMA", "MA KONKADHIA", "MARS / MOSES",
+            "MA AKWADHISHENI", "MA MERIDHAIZ", "NGIROZI DZE RUNYARARO", "MA MAZAROTI MARANATA",
+            "MIVIRI MINA YEMUNHU", "DHIVHAIDHA TEMPUS", "KUGADZWA KWESIMBA", "SOLOMON CYCLE",
+            "TENZI VANOTSIURA NEZVENYAYA YEMARI", "BOOK RA YURIERI (RAIFIRI SEFIRA )", "KUFA KWEMUNHU",
+            "KUZVIPATSURA KWA HASHEM", "MUNHU NDIYE HASHEM PASI", "RIVHITI SAIKORO (KUFA NEKUMUKA)",
+            "MUTEURO WE SIVHASI TRONA", "RUFUNDIMAMBO", "HEPENI HAI SALUPU", "KUFAMBA KWA RA NA MA MUMUNHU",
+            "ZVIKARA ZVIRIMUNYIKA NOMWE DZIRI MUMUNHU", "HUKURU HWEMUNHU", "ANI ( I AM WHO I AM )",
+            "MADOFO ( MADAWO 4)", "CYCLE YEKUSIKWA KWENYIKA", "PIO (PIUS)", "KUGADZWA KWEVAPOROFITI VASHANU MUMUNHU",
+            "HUNOMWE HWESOLAR SYSTEM", "HASHEM ARIMUNA ZVOSE", "KURASIKA KWENZIRA",
+            "ZVIRANGARANGA ZVEKUNA MUZIISI (MOSES)", "HASHEM AMUNHU / AMUNHU RA / AMUN RA",
+            "ERIJAH IMHINDUPINDU", "GUMI REMITEMO (KANAK NE SHANASH)", "MAZUVA ESVONDO",
+            "RA MAYIM / RA PRANAMA / RA SHEKINAH / RA SHIMINI", "SAMARIA NE JERUSALEM",
+            "MWARI ARIMUMUNHU (BRAIN)", "MASHANDIRO ANOITA PFUNGWA DZEMUNHU", "KUKOSHA KWEKUDYA MANA",
+            "MWENJEMINOMWE YAKAGOVANA MAZUVA EPAGORE", "ROTTEN ROW COURT (DARE)", "KUVAKWA KWE HELIOPOLIS ITSVA"
+        ];
+        
+        const difficulties = ["Beginner", "Intermediate", "Advanced", "Master"];
+        const readTimes = ["8 min", "12 min", "15 min", "18 min", "22 min", "25 min", "30 min"];
+
+        for (let i = 11; i <= 113; i++) {
+            chapters.push({
+                id: i,
+                title: remainingChapters[i - 11],
+                content: `<h3>${remainingChapters[i - 11]}</h3><p>🔒 <strong>Premium Content</strong></p><p>This sacred chapter contains profound teachings and divine wisdom from the Heliopolis text by ABASID1841.</p><p>The teachings within explore the deepest mysteries of creation, spiritual enlightenment, and the divine alphabet that governs all existence.</p><p><em>Unlock full access for $10 to read this complete chapter and 103 others...</em></p>`,
+                readTime: readTimes[Math.floor(Math.random() * readTimes.length)],
+                difficulty: difficulties[Math.floor(Math.random() * difficulties.length)],
+                free: false
+            });
+        }
+
+        // Application state
+        let isPremiumUser = false;
+        let currentView = 'all';
+        let searchQuery = '';
+        let bookmarks = [];
+        let selectedPaymentMethod = null;
+
+        // Valid access codes (in production, these would be generated server-side)
+        const validAccessCodes = ['123456', 'GOLD77', 'DIVINE', 'SUN123'];
+
+        // Initialize the application
+        function initializeApp() {
+            try {
+                // Load saved data
+                isPremiumUser = localStorage.getItem('heliopolis_premium') === 'true';
+                bookmarks = JSON.parse(localStorage.getItem('heliopolis_bookmarks') || '[]');
+                
+                updatePremiumStatus();
+                renderChapterList();
+                updateStats();
+                setupEventListeners();
+            } catch (e) {
+                console.warn('Error initializing app:', e);
+            }
+        }
+
+        // Setup all event listeners safely
+        function setupEventListeners() {
+            try {
+                // Search input
+                const searchInput = safeGetElement('searchInput');
+                if (searchInput) {
+                    searchInput.addEventListener('input', searchChapters);
+                }
+
+                // Access code inputs
+                for (let i = 1; i <= 6; i++) {
+                    const codeInput = safeGetElement(`code${i}`);
+                    if (codeInput) {
+                        codeInput.addEventListener('input', function(e) {
+                            if (e.target.value.length === 1 && i < 6) {
+                                const nextInput = safeGetElement(`code${i + 1}`);
+                                if (nextInput) nextInput.focus();
+                            }
+                            if (i === 6 && e.target.value.length === 1) {
+                                verifyAccessCode();
+                            }
+                        });
+                    }
+                }
+
+                // Payment modal click outside to close
+                const paymentModal = safeGetElement('paymentModal');
+                if (paymentModal) {
+                    paymentModal.addEventListener('click', function(e) {
+                        if (e.target === this) {
+                            closePaymentModal();
+                        }
+                    });
+                }
+
+                // Card number formatting
+                const cardNumber = safeGetElement('cardNumber');
+                if (cardNumber) {
+                    cardNumber.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                        let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                        e.target.value = formattedValue;
+                    });
+                }
+
+                // Card expiry formatting
+                const cardExpiry = safeGetElement('cardExpiry');
+                if (cardExpiry) {
+                    cardExpiry.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\D/g, '');
+                        if (value.length >= 2) {
+                            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                        }
+                        e.target.value = value;
+                    });
+                }
+            } catch (e) {
+                console.warn('Error setting up event listeners:', e);
+            }
+        }
+
+        // Update premium status display
+        function updatePremiumStatus() {
+            try {
+                const banner = safeGetElement('premiumBanner');
+                if (banner && isPremiumUser) {
+                    banner.className = 'premium-banner success';
+                    safeSetInnerHTML(banner, '🎉 <strong>Premium Access Activated!</strong> You have lifetime access to all 113 sacred chapters.');
+                }
+            } catch (e) {
+                console.warn('Error updating premium status:', e);
+            }
+        }
+
+        // Render chapter list based on current view and access level
+        function renderChapterList() {
+            try {
+                const chapterList = safeGetElement('chapterList');
+                if (!chapterList) return;
+                
+                let filteredChapters = chapters;
+
+                // Apply search filter
+                if (searchQuery) {
+                    filteredChapters = chapters.filter(chapter => 
+                        chapter.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        chapter.content.toLowerCase().includes(searchQuery.toLowerCase())
+                    );
+                }
+
+                // Apply view filter
+                switch (currentView) {
+                    case 'bookmarks':
+                        filteredChapters = filteredChapters.filter(chapter => bookmarks.includes(chapter.id));
+                        break;
+                }
+
+                const chaptersHTML = filteredChapters.map(chapter => {
+                    const isLocked = !chapter.free && !isPremiumUser;
+                    return `
+                        <li class="chapter-item ${isLocked ? 'locked' : ''}" onclick="${isLocked ? 'showPremiumRequired()' : `loadChapter(${chapter.id})`}">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="chapter-number">${chapter.id}.</span>
+                                    <span class="chapter-title">${chapter.title}</span>
+                                </div>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <span style="color: var(--text-secondary); font-size: 0.8em;">${chapter.readTime}</span>
+                                    <span style="color: var(--secondary-gold); font-size: 0.7em; text-transform: uppercase; background: rgba(255,215,0,0.1); padding: 2px 6px; border-radius: 10px;">${chapter.difficulty}</span>
+                                    ${!isLocked ? `<button onclick="event.stopPropagation(); toggleBookmark(${chapter.id})" style="background: none; border: none; color: ${bookmarks.includes(chapter.id) ? 'var(--primary-gold)' : 'var(--text-secondary)'}; cursor: pointer; font-size: 1.2em;" title="Bookmark">⭐</button>` : ''}
+                                </div>
+                            </div>
+                        </li>
+                    `;
+                }).join('');
+
+                safeSetInnerHTML(chapterList, chaptersHTML);
+            } catch (e) {
+                console.warn('Error rendering chapter list:', e);
+            }
+        }
+
+        // Payment Modal Functions
+        function openPaymentModal() {
+            try {
+                const modal = safeGetElement('paymentModal');
+                if (modal) {
+                    // Ensure modal is completely hidden first
+                    modal.style.display = 'flex';
+                    modal.style.opacity = '0';
+                    modal.style.visibility = 'hidden';
+                    
+                    // Force reflow then show with animation
+                    modal.offsetHeight;
+                    
+                    modal.classList.add('show');
+                    modal.style.opacity = '1';
+                    modal.style.visibility = 'visible';
+                    
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Focus management
+                    setTimeout(() => {
+                        const firstInput = modal.querySelector('input, button');
+                        if (firstInput) firstInput.focus();
+                    }, 100);
+                }
+            } catch (e) {
+                console.warn('Error opening payment modal:', e);
+            }
+        }
+
+        function closePaymentModal() {
+            try {
+                const modal = safeGetElement('paymentModal');
+                if (modal) {
+                    modal.classList.remove('show');
+                    modal.style.opacity = '0';
+                    modal.style.visibility = 'hidden';
+                    
+                    // Hide completely after animation
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300);
+                    
+                    document.body.style.overflow = 'auto';
+                    resetPaymentForm();
+                }
+            } catch (e) {
+                console.warn('Error closing payment modal:', e);
+            }
+        }
+
+        function selectPaymentMethod(method) {
+            try {
+                selectedPaymentMethod = method;
+                
+                // Update active method
+                const methods = document.querySelectorAll('.payment-method');
+                methods.forEach(el => el.classList.remove('active'));
+                if (event.target.closest('.payment-method')) {
+                    event.target.closest('.payment-method').classList.add('active');
+                }
+                
+                // Show corresponding form
+                const forms = document.querySelectorAll('.payment-form');
+                forms.forEach(form => form.classList.remove('active'));
+                const targetForm = safeGetElement(method + 'Form');
+                if (targetForm) {
+                    targetForm.classList.add('active');
+                }
+            } catch (e) {
+                console.warn('Error selecting payment method:', e);
+            }
+        }
+
+        function resetPaymentForm() {
+            try {
+                selectedPaymentMethod = null;
+                const methods = document.querySelectorAll('.payment-method');
+                methods.forEach(el => el.classList.remove('active'));
+                const forms = document.querySelectorAll('.payment-form');
+                forms.forEach(form => form.classList.remove('active'));
+                const inputs = document.querySelectorAll('.form-input');
+                inputs.forEach(input => input.value = '');
+            } catch (e) {
+                console.warn('Error resetting payment form:', e);
+            }
+        }
+
+        // Payment Processing Functions
+        async function processEcocashPayment() {
+            try {
+                const phoneNumber = safeGetElement('ecocashNumber')?.value;
+                if (!phoneNumber || phoneNumber.length < 10) {
+                    alert('Please enter a valid EcoCash number');
+                    return;
+                }
+
+                const button = event.target;
+                if (button) {
+                    button.disabled = true;
+                    safeSetTextContent(button, 'Processing...');
+                }
+
+                const response = await simulatePaymentRequest('ecocash', {
+                    phone: phoneNumber,
+                    amount: 10,
+                    merchant: '263773299604'
+                });
+
+                if (response.success) {
+                    const accessCode = generateAccessCode();
+                    showPaymentSuccess(accessCode);
+                } else {
+                    throw new Error(response.message || 'Payment failed');
+                }
+            } catch (error) {
+                alert('Payment failed: ' + error.message);
+                const button = event.target;
+                if (button) {
+                    button.disabled = false;
+                    safeSetTextContent(button, 'Pay $10 with EcoCash');
+                }
+            }
+        }
+
+        async function processOnemoneyPayment() {
+            try {
+                const phoneNumber = safeGetElement('onemoneyNumber')?.value;
+                if (!phoneNumber || phoneNumber.length < 10) {
+                    alert('Please enter a valid OneMoney number');
+                    return;
+                }
+
+                const button = event.target;
+                if (button) {
+                    button.disabled = true;
+                    safeSetTextContent(button, 'Processing...');
+                }
+
+                const response = await simulatePaymentRequest('onemoney', {
+                    phone: phoneNumber,
+                    amount: 10,
+                    merchant: '263717081720'
+                });
+
+                if (response.success) {
+                    const accessCode = generateAccessCode();
+                    showPaymentSuccess(accessCode);
+                } else {
+                    throw new Error(response.message || 'Payment failed');
+                }
+            } catch (error) {
+                alert('Payment failed: ' + error.message);
+                const button = event.target;
+                if (button) {
+                    button.disabled = false;
+                    safeSetTextContent(button, 'Pay $10 with OneMoney');
+                }
+            }
+        }
+
+        async function processCardPayment() {
+            try {
+                const cardNumber = safeGetElement('cardNumber')?.value;
+                const cardExpiry = safeGetElement('cardExpiry')?.value;
+                const cardCvv = safeGetElement('cardCvv')?.value;
+                const cardName = safeGetElement('cardName')?.value;
+
+                if (!cardNumber || !cardExpiry || !cardCvv || !cardName) {
+                    alert('Please fill in all card details');
+                    return;
+                }
+
+                const button = event.target;
+                if (button) {
+                    button.disabled = true;
+                    safeSetTextContent(button, 'Processing...');
+                }
+
+                const response = await simulatePaymentRequest('card', {
+                    cardNumber: cardNumber.replace(/\s/g, ''),
+                    expiry: cardExpiry,
+                    cvv: cardCvv,
+                    name: cardName,
+                    amount: 10
+                });
+
+                if (response.success) {
+                    const accessCode = generateAccessCode();
+                    showPaymentSuccess(accessCode);
+                } else {
+                    throw new Error(response.message || 'Payment failed');
+                }
+            } catch (error) {
+                alert('Payment failed: ' + error.message);
+                const button = event.target;
+                if (button) {
+                    button.disabled = false;
+                    safeSetTextContent(button, 'Pay $10 with Card');
+                }
+            }
+        }
+
+        // Simulate payment request (replace with real API calls)
+        function simulatePaymentRequest(method, details) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Simulate 90% success rate
+                    const success = Math.random() > 0.1;
+                    resolve({
+                        success: success,
+                        transactionId: success ? 'TXN' + Date.now() : null,
+                        message: success ? 'Payment successful' : 'Payment declined'
+                    });
+                }, 2000);
+            });
+        }
+
+        // Generate random access code
+        function generateAccessCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // Show payment success
+        function showPaymentSuccess(accessCode) {
+            closePaymentModal();
+            alert(`Payment Successful! 🎉\n\nYour access code is: ${accessCode}\n\nPlease enter this code in the "Have an Access Code?" section to unlock premium access.`);
+        }
+
+        // Access Code Functions
+        function verifyAccessCode() {
+            try {
+                const code = ['code1', 'code2', 'code3', 'code4', 'code5', 'code6']
+                    .map(id => safeGetElement(id)?.value || '')
+                    .join('');
+
+                if (code.length !== 6) {
+                    alert('Please enter the complete 6-digit access code');
+                    return;
+                }
+
+                if (validAccessCodes.includes(code.toUpperCase())) {
+                    // Activate premium access
+                    isPremiumUser = true;
+                    localStorage.setItem('heliopolis_premium', 'true');
+                    localStorage.setItem('heliopolis_access_code', code.toUpperCase());
+                    
+                    updatePremiumStatus();
+                    renderChapterList();
+                    updateStats();
+                    
+                    alert('🎉 Premium Access Activated!\n\nYou now have lifetime access to all 113 sacred chapters of Heliopolis!');
+                    
+                    // Clear access code inputs
+                    ['code1', 'code2', 'code3', 'code4', 'code5', 'code6']
+                        .forEach(id => {
+                            const input = safeGetElement(id);
+                            if (input) input.value = '';
+                        });
+                } else {
+                    alert('❌ Invalid access code. Please check and try again.');
+                }
+            } catch (e) {
+                console.warn('Error verifying access code:', e);
+            }
+        }
+
+        // Show premium required message
+        function showPremiumRequired() {
+            alert('🔒 Premium Content\n\nThis chapter requires premium access. Unlock all 113 chapters for just $10 lifetime access!');
+            openPaymentModal();
+        }
+
+        // Load chapter content
+        function loadChapter(chapterId) {
+            try {
+                const chapter = chapters.find(ch => ch.id === chapterId);
+                if (!chapter) return;
+
+                // Check if chapter is locked
+                if (!chapter.free && !isPremiumUser) {
+                    showPremiumRequired();
+                    return;
+                }
+
+                // Update active chapter
+                const allItems = document.querySelectorAll('.chapter-item');
+                allItems.forEach(item => item.classList.remove('active'));
+                
+                // Load content with enhanced formatting
+                const contentArea = safeGetElement('contentArea');
+                if (!contentArea) return;
+
+                const isLastFreeChapter = chapterId === 10 && !isPremiumUser;
+                
+                const contentHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 10px;">
+                        <div>
+                            <span style="color: var(--text-secondary); font-size: 0.9em;">Reading time: ${chapter.readTime}</span>
+                            <span style="margin-left: 20px; color: var(--secondary-gold); font-size: 0.8em; text-transform: uppercase; background: rgba(255,215,0,0.1); padding: 2px 8px; border-radius: 10px;">${chapter.difficulty}</span>
+                            ${!chapter.free ? '<span style="margin-left: 10px; color: var(--primary-gold); font-size: 0.8em;">👑 PREMIUM</span>' : ''}
+                        </div>
+                        ${chapter.free || isPremiumUser ? `<button onclick="toggleBookmark(${chapter.id})" style="background: none; border: none; color: ${bookmarks.includes(chapter.id) ? 'var(--primary-gold)' : 'var(--text-secondary)'}; cursor: pointer; font-size: 1.5em;" title="Bookmark">⭐</button>` : ''}
+                    </div>
+                    <h2 class="content-title">${chapter.id}. ${chapter.title}</h2>
+                    <div class="content-text">${chapter.content}</div>
+                    ${isLastFreeChapter ? `
+                        <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,107,53,0.1)); border-radius: 15px; text-align: center; border: 2px solid var(--primary-gold);">
+                            <h3 style="color: var(--primary-gold); margin-bottom: 15px; font-family: 'Cinzel', serif;">🔒 End of Free Content</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1em;">You've reached the end of the free chapters. Unlock all 113 sacred chapters for lifetime access!</p>
+                            <button onclick="openPaymentModal()" style="padding: 15px 30px; background: linear-gradient(135deg, var(--warning-orange), var(--primary-gold)); color: var(--deep-blue); border: none; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 1.2em; font-family: 'Cinzel', serif;">Unlock Premium - $10</button>
+                        </div>
+                    ` : ''}
+                    ${chapter.free || isPremiumUser ? `
+                        <div style="margin-top: 40px; padding: 20px; background: rgba(255,215,0,0.05); border-radius: 10px; text-align: center;">
+                            <p style="color: var(--text-secondary); font-style: italic;">End of Chapter ${chapter.id}</p>
+                            ${chapter.id < 113 ? `<button onclick="loadChapter(${chapter.id + 1})" style="margin-top: 10px; padding: 10px 20px; background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold)); color: var(--deep-blue); border: none; border-radius: 20px; cursor: pointer; font-weight: 600;">Next Chapter →</button>` : ''}
+                        </div>
+                    ` : ''}
+                `;
+
+                safeSetInnerHTML(contentArea, contentHTML);
+
+                // Scroll to content
+                const contentPanel = safeQuerySelector('.content-panel');
+                if (contentPanel) {
+                    contentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                updateStats();
+            } catch (e) {
+                console.warn('Error loading chapter:', e);
+            }
+        }
+
+        // Toggle bookmark
+        function toggleBookmark(chapterId) {
+            try {
+                if (bookmarks.includes(chapterId)) {
+                    bookmarks = bookmarks.filter(id => id !== chapterId);
+                } else {
+                    bookmarks.push(chapterId);
+                }
+                localStorage.setItem('heliopolis_bookmarks', JSON.stringify(bookmarks));
+                renderChapterList();
+                updateStats();
+                
+                // Update content area if currently viewing this chapter
+                const contentTitle = safeQuerySelector('.content-title');
+                if (contentTitle && contentTitle.textContent.startsWith(`${chapterId}.`)) {
+                    loadChapter(chapterId);
+                }
+            } catch (e) {
+                console.warn('Error toggling bookmark:', e);
+            }
+        }
+
+        // Search functionality
+        function searchChapters() {
+            try {
+                const searchInput = safeGetElement('searchInput');
+                searchQuery = searchInput ? searchInput.value : '';
+                renderChapterList();
+            } catch (e) {
+                console.warn('Error searching chapters:', e);
+            }
+        }
+
+        // View controls
+        function showAll() {
+            currentView = 'all';
+            updateActiveButton(0);
+            renderChapterList();
+        }
+
+        function showFavorites() {
+            currentView = 'bookmarks';
+            updateActiveButton(1);
+            renderChapterList();
+        }
+
+        function updateActiveButton(index) {
+            try {
+                const buttons = document.querySelectorAll('.control-btn');
+                buttons.forEach((btn, i) => {
+                    if (i < 2) { // Only update first 2 buttons (All Chapters, Bookmarks)
+                        btn.classList.toggle('active', i === index);
+                    }
+                });
+            } catch (e) {
+                console.warn('Error updating active button:', e);
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            try {
+                safeSetTextContent(safeGetElement('totalChapters'), chapters.length.toString());
+                safeSetTextContent(safeGetElement('unlockedChapters'), 
+                    (isPremiumUser ? chapters.length : chapters.filter(ch => ch.free).length).toString());
+                safeSetTextContent(safeGetElement('bookmarkCount'), bookmarks.length.toString());
+            } catch (e) {
+                console.warn('Error updating stats:', e);
+            }
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                initializeApp();
+            } catch (e) {
+                console.warn('Error initializing app:', e);
+            }
+        });
+    </script>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heliopolis - Sacred Digital Manuscript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #ffd700;
+            --secondary-gold: #ffb347;
+            --deep-blue: #0a0f2e;
+            --medium-blue: #1a1f3e;
+            --light-blue: #2a3f5e;
+            --text-light: #f8f9fa;
+            --text-secondary: #e0e6ed;
+            --accent-orange: #ff6b35;
+            --shadow-gold: rgba(255, 215, 0, 0.3);
+            --success-green: #28a745;
+            --warning-orange: #fd7e14;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 50%, var(--light-blue) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Enhanced Header */
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 3px solid var(--primary-gold);
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* Premium Sun Logo */
+        .sun-logo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: rotate 25s linear infinite;
+            filter: drop-shadow(0 0 30px var(--shadow-gold));
+        }
+
+        .sun-center {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #fff700 0%, var(--primary-gold) 30%, var(--secondary-gold) 70%, var(--accent-orange) 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 40px rgba(255, 215, 0, 0.9),
+                inset 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 80px rgba(255, 215, 0, 0.5);
+            z-index: 2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .sun-rays {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .sun-ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 50px;
+            background: linear-gradient(to top, 
+                rgba(255, 179, 71, 0.2) 0%, 
+                var(--secondary-gold) 30%, 
+                var(--primary-gold) 80%, 
+                #fff700 100%);
+            border-radius: 4px;
+            transform-origin: center bottom;
+            opacity: 0.9;
+            filter: blur(0.5px);
+        }
+
+        /* Generate 24 rays */
+        .sun-ray:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+        .sun-ray:nth-child(2) { transform: translate(-50%, -100%) rotate(15deg); }
+        .sun-ray:nth-child(3) { transform: translate(-50%, -100%) rotate(30deg); }
+        .sun-ray:nth-child(4) { transform: translate(-50%, -100%) rotate(45deg); }
+        .sun-ray:nth-child(5) { transform: translate(-50%, -100%) rotate(60deg); }
+        .sun-ray:nth-child(6) { transform: translate(-50%, -100%) rotate(75deg); }
+        .sun-ray:nth-child(7) { transform: translate(-50%, -100%) rotate(90deg); }
+        .sun-ray:nth-child(8) { transform: translate(-50%, -100%) rotate(105deg); }
+        .sun-ray:nth-child(9) { transform: translate(-50%, -100%) rotate(120deg); }
+        .sun-ray:nth-child(10) { transform: translate(-50%, -100%) rotate(135deg); }
+        .sun-ray:nth-child(11) { transform: translate(-50%, -100%) rotate(150deg); }
+        .sun-ray:nth-child(12) { transform: translate(-50%, -100%) rotate(165deg); }
+        .sun-ray:nth-child(13) { transform: translate(-50%, -100%) rotate(180deg); }
+        .sun-ray:nth-child(14) { transform: translate(-50%, -100%) rotate(195deg); }
+        .sun-ray:nth-child(15) { transform: translate(-50%, -100%) rotate(210deg); }
+        .sun-ray:nth-child(16) { transform: translate(-50%, -100%) rotate(225deg); }
+        .sun-ray:nth-child(17) { transform: translate(-50%, -100%) rotate(240deg); }
+        .sun-ray:nth-child(18) { transform: translate(-50%, -100%) rotate(255deg); }
+        .sun-ray:nth-child(19) { transform: translate(-50%, -100%) rotate(270deg); }
+        .sun-ray:nth-child(20) { transform: translate(-50%, -100%) rotate(285deg); }
+        .sun-ray:nth-child(21) { transform: translate(-50%, -100%) rotate(300deg); }
+        .sun-ray:nth-child(22) { transform: translate(-50%, -100%) rotate(315deg); }
+        .sun-ray:nth-child(23) { transform: translate(-50%, -100%) rotate(330deg); }
+        .sun-ray:nth-child(24) { transform: translate(-50%, -100%) rotate(345deg); }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .institution {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5em;
+            color: var(--primary-gold);
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(255, 215, 0, 0.6);
+            margin-bottom: 25px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-gold), #fff700, var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            color: var(--secondary-gold);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.6),
+                0 0 15px rgba(255, 179, 71, 0.4);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .author-info {
+            font-size: 1.1em;
+            color: var(--secondary-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Premium Access Banner */
+        .premium-banner {
+            background: linear-gradient(135deg, var(--warning-orange), var(--primary-gold));
+            color: var(--deep-blue);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .premium-banner.success {
+            background: linear-gradient(135deg, var(--success-green), #20c997);
+            color: white;
+        }
+
+        /* Payment Modal - Hidden by default */
+        .payment-modal {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(0, 0, 0, 0.85) !important;
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 999999 !important;
+            backdrop-filter: blur(15px);
+            margin: 0 !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+        }
+
+        .payment-modal.show {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .payment-content {
+            background: linear-gradient(135deg, var(--deep-blue), var(--medium-blue)) !important;
+            padding: 30px !important;
+            border-radius: 20px !important;
+            max-width: 480px !important;
+            width: 100% !important;
+            max-height: 85vh !important;
+            overflow-y: auto !important;
+            border: 2px solid var(--primary-gold) !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7) !important;
+            position: relative !important;
+            margin: 0 auto !important;
+            transform: scale(0.9) translateY(-20px) !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .payment-modal.show .payment-content {
+            transform: scale(1) translateY(0) !important;
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payment-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .payment-price {
+            font-size: 3em;
+            color: var(--primary-gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .payment-description {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .payment-methods {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .payment-method:hover,
+        .payment-method.active {
+            border-color: var(--primary-gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .payment-method-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-gold);
+        }
+
+        .payment-method-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .payment-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1em;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 10px var(--shadow-gold);
+        }
+
+        .payment-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            color: var(--deep-blue);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .payment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--shadow-gold);
+        }
+
+        .payment-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Access Code Input */
+        .access-code-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .access-code-title {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .access-code-input {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .code-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .code-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 10px var(--shadow-gold);
+        }
+
+        .verify-button {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--success-green), #20c997);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .control-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            color: var(--deep-blue);
+            border: none;
+            border-radius: 25px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px var(--shadow-gold);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-gold);
+        }
+
+        .control-btn.active {
+            background: linear-gradient(135deg, #fff700, var(--primary-gold));
+            transform: scale(1.05);
+        }
+
+        .control-btn.premium {
+            background: linear-gradient(135deg, var(--warning-orange), var(--accent-orange));
+            color: white;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            color: var(--text-light);
+            font-size: 1.1em;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px var(--shadow-gold);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-gold);
+            font-size: 1.2em;
+        }
+
+        /* Enhanced Navigation Layout */
+        .nav-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contents-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            max-height: 75vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .contents-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .content-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            max-height: 75vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .contents-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-item {
+            margin-bottom: 10px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-item.locked {
+            opacity: 0.6;
+            background: rgba(255, 255, 255, 0.01);
+            cursor: not-allowed;
+        }
+
+        .chapter-item.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+        }
+
+        .chapter-item:not(.locked):hover {
+            background: rgba(255, 215, 0, 0.15);
+            border-left-color: var(--primary-gold);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .chapter-item.active {
+            background: rgba(255, 215, 0, 0.25);
+            border-left-color: var(--primary-gold);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .chapter-number {
+            color: var(--primary-gold);
+            font-weight: bold;
+            margin-right: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+        }
+
+        .chapter-title {
+            color: var(--text-light);
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .content-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: var(--primary-gold);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-gold);
+            padding-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .content-text {
+            line-height: 1.9;
+            font-size: 1.15em;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .content-text h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            margin: 30px 0 20px 0;
+            font-size: 1.6em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content-text p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 120px;
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+
+        .welcome-message h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Chapter Stats */
+        .chapter-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Enhanced Scrollbars */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            border-radius: 6px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #fff700, var(--primary-gold));
+            background-clip: content-box;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .institution {
+                font-size: 3.5em;
+            }
+
+            .title {
+                font-size: 2.5em;
+            }
+
+            .contents-panel,
+            .content-panel {
+                max-height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .institution {
+                font-size: 2.8em;
+                letter-spacing: 3px;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+            
+            .sun-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .sun-center {
+                width: 60px;
+                height: 60px;
+            }
+
+            .nav-controls {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .control-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .contents-panel,
+            .content-panel {
+                padding: 20px;
+                max-height: 50vh;
+            }
+
+            .access-code-input {
+                flex-wrap: wrap;
+            }
+
+            .payment-content {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+            <div class="payment-header">
+                <h2 class="payment-title">Unlock Full Access</h2>
+                <div class="payment-price">$10</div>
+                <p class="payment-description">Lifetime access to all 113 sacred chapters</p>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPaymentMethod('ecocash')">
+                    <div class="payment-method-title">💰 EcoCash</div>
+                    <div class="payment-method-subtitle">Pay with EcoCash mobile money</div>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod('onemoney')">
+                    <div class="payment-method-title">📱 OneMoney</div>
+                    <div class="payment-method-subtitle">Pay with OneMoney mobile money</div>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod('card')">
+                    <div class="payment-method-title">💳 Credit Card</div>
+                    <div class="payment-method-subtitle">Pay with Visa, Mastercard, etc.</div>
+                </div>
+            </div>
+
+            <!-- EcoCash Form -->
+            <div class="payment-form" id="ecocashForm">
+                <div class="form-group">
+                    <label class="form-label">EcoCash Number</label>
+                    <input type="tel" class="form-input" placeholder="263777123456" id="ecocashNumber">
+                </div>
+                <button class="payment-button" onclick="processEcocashPayment()">
+                    Pay $10 with EcoCash
+                </button>
+                <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary); text-align: center;">
+                    You'll receive a payment prompt on your phone
+                </p>
+            </div>
+
+            <!-- OneMoney Form -->
+            <div class="payment-form" id="onemoneyForm">
+                <div class="form-group">
+                    <label class="form-label">OneMoney Number</label>
+                    <input type="tel" class="form-input" placeholder="263717123456" id="onemoneyNumber">
+                </div>
+                <button class="payment-button" onclick="processOnemoneyPayment()">
+                    Pay $10 with OneMoney
+                </button>
+                <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-secondary); text-align: center;">
+                    You'll receive a payment prompt on your phone
+                </p>
+            </div>
+
+            <!-- Card Form -->
+            <div class="payment-form" id="cardForm">
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <input type="text" class="form-input" placeholder="1234 5678 9012 3456" id="cardNumber">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Date</label>
+                        <input type="text" class="form-input" placeholder="MM/YY" id="cardExpiry">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV</label>
+                        <input type="text" class="form-input" placeholder="123" id="cardCvv">
+                    </div>
